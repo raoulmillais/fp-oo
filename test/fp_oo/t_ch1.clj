@@ -51,3 +51,11 @@
 (fact "strip-prefixed"
       (strip-prefixed "foo" ["foobar" "barbar" "foobaz" "bazquux" "foo"])
       => ["barbar" "bazquux"])
+
+(fact "prefix-of?"
+      (prefix-of? [1 2] [1 2 3 4]) => true
+      (prefix-of? '(2 3) [1 2 3 4]) => false
+      (prefix-of? '(1 2) [1 2 3 4]) => true)
+
+(fact "tails"
+      (tails '(1 2 3 4)) => '((1 2 3 4) (2 3 4) (3 4) (4) ()))

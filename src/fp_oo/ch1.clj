@@ -69,3 +69,14 @@
 (def strip-prefixed
   (fn [prefix l]
     (remove (fn [i] (.startsWith i prefix)) l)))
+
+(def prefix-of?
+  (fn [candidate sequence]
+    (= (take (count candidate) sequence)
+       candidate)))
+
+(def tails
+  (fn [l]
+    (if
+      (empty? l) '(())
+      (cons l (tails (rest l))))))
